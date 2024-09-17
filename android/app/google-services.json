@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "376829073240",
+    "project_id": "day2database",
+    "storage_bucket": "day2database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376829073240:android:8ed9847b5557815257f72d",
+        "android_client_info": {
+          "package_name": "com.example.test_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdNBUmIgtN-zKJs-Pape_3S-i46Q8MXTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

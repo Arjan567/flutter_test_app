@@ -1,0 +1,40 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id "org.jetbrains.kotlin.android" version "1.9.10" // Make sure this version is correct
+}
+
+android {
+    compileSdkVersion 34 // Ensure this matches the latest SDK version
+
+    defaultConfig {
+        applicationId "com.example.test_app"
+        minSdkVersion 23 // Ensure min SDK version is set correctly
+        targetSdkVersion 34 // Ensure this is set to the late395st SDK version
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+dependencies {
+    implementation platform("com.google.firebase:firebase-bom:33.2.0")
+    implementation "com.google.firebase:firebase-analytics"
+    // Add other Firebase dependencies if needed
+}
