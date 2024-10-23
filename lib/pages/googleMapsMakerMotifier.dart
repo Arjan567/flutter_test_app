@@ -13,6 +13,12 @@ class _GooglemapsmakermotifierState extends State<Googlemapsmakermotifier> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(2, 2, 3, 2),
+  floatingActionButtonLocation:FloatingActionButtonLocation.centerDocked,
+  floatingActionButton: SizedBox(
+    child:Column(mainAxisAlignment: MainAxisAlignment.end,children:[
+      
+    ])
+  ),
       appBar: AppBar(
         title: const Text('Google maps maker'),
       ),

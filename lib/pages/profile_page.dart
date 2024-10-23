@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:test_app/pages/Basicetodoapp/todo.dart';
 import 'package:test_app/pages/profile.dart';
 import 'package:test_app/pages/Home.dart';
 import 'package:test_app/pages/regester.dart';
@@ -76,8 +77,11 @@ class _ProfilePageState extends State<ProfilePage> {
   void _handlePopupMenuItem() {
     print('Go to the profile');
     Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const TODOAPP()));
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 131, 131, 133),
@@ -153,7 +157,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           },
                         ),
                       ),
-                      const Column(
+                      Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           TextField(
@@ -219,24 +223,54 @@ class _ProfilePageState extends State<ProfilePage> {
                             height: 12,
                           ),
                           TextField(
+                            readOnly: true,
+                            onTap: () async {
+                              var datepicked = await showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2001),
+                                  lastDate: DateTime(2025));
+
+                              if (datepicked != null) {
+                                print(
+                                    'Date pickeed:${datepicked.day}-${datepicked.month}-${datepicked.year}');
+                              }
+                            },
                             decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(18),
-                                  ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(18),
                                 ),
-                                hintText: 'DOB DD/MM/YYY',
-                                labelStyle:
-                                    TextStyle(fontSize: 15, color: Colors.blue),
-                                hintStyle:
-                                    TextStyle(color: Colors.grey, fontSize: 15),
-                                labelText: 'Year',
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 15, horizontal: 8)),
+                              ),
+                              hintText: 'DOB DD/MM/YYY',
+                              labelStyle:
+                                  TextStyle(fontSize: 15, color: Colors.blue),
+                              hintStyle:
+                                  TextStyle(color: Colors.grey, fontSize: 15),
+                              labelText: 'Year',
+                              contentPadding: EdgeInsets.symmetric(
+                                  vertical: 15, horizontal: 8),
+                            ),
                           ),
                           SizedBox(
                             height: 12,
                           ),
+                          //Text('select date'),
+                          // ElevatedButton(
+                          //   child: Text('select date'),
+                          //   onPressed: () async {
+                          //     var datepicked = await showDatePicker(
+                          //         context: context,
+                          //         initialDate: DateTime.now(),
+                          //         firstDate: DateTime(2001),
+                          //         lastDate: DateTime(2025));
+
+                          //     if (datepicked != null) {
+                          //       print(
+                          //           'Date pickeed:${datepicked.day}-${datepicked.month}-${datepicked.year}');
+                          //     }
+                          //   },
+                          // ),
                           TextField(
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
